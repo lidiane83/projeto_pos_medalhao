@@ -1,0 +1,122 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffad8d16c00, pid=4356, tid=24492
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.20.1+1 (17.0.20.1+1) (build 17.0.20.1+1)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (17.0.20.1+1, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x2a6c00]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx2g -XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false org.apache.spark.deploy.SparkSubmit --conf spark.master=local[2] --conf spark.driver.memory=2g --conf spark.sql.catalog.lake.warehouse=s3a://warehouse/lakehouse --conf spark.sql.catalog.lake.type=hadoop --conf spark.jars.packages=org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.6.1,org.apache.hadoop:hadoop-aws:3.3.4,org.postgresql:postgresql:42.7.4 --conf spark.hadoop.fs.s3a.endpoint=http://localhost:9001 --conf spark.hadoop.fs.s3a.secret.key=admin12345 --conf spark.app.name=aula-medalhao --conf spark.hadoop.fs.s3a.access.key=admin --conf spark.driver.bindAddress=127.0.0.1 --conf spark.pyspark.driver.python=c:\Users\Lidiane\AppData\Local\Python\pythoncore-3.12-64\python.exe --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.sql.shuffle.partitions=4 --conf spark.driver.host=127.0.0.1 --conf spark.pyspark.python=c:\Users\Lidiane\AppData\Local\Python\pythoncore-3.12-64\python.exe --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.sql.session.timeZone=America/Sao_Paulo --conf spark.sql.legacy.timeParserPolicy=CORRECTED --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.default.parallelism=2 --conf spark.sql.defaultCatalog=lake --conf spark.sql.catalog.lake=org.apache.iceberg.spark.SparkCatalog --conf spark.ui.showConsoleProgress=false --conf spark.hadoop.fs.s3a.connection.ssl.enabled=false pyspark-shell
+
+Host: Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz, 8 cores, 11G,  Windows 11 , 64 bit Build 26100 (10.0.26100.9711)
+Time: Wed Nov  4 05:20:30 2026 Hora oficial do Brasil elapsed time: 154.019816 seconds (0d 0h 2m 34s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002142d43ff60):  JavaThread "C2 CompilerThread2" daemon [_thread_in_vm, id=24492, stack(0x000000eada300000,0x000000eada400000)]
+
+
+Current CompileTask:
+C2:154019 11183       4       org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1$hashAgg_FastHashMap_0::findOrInsert (220 bytes)
+
+Stack: [0x000000eada300000,0x000000eada400000],  sp=0x000000eada3fd128,  free space=1012k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x2a6c00]
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x000000000001b0b9
+
+
+Registers:
+RAX=0x000000000001b0b9, RBX=0x0000021424b14a38, RCX=0x0000021424296830, RDX=0x000000000000002a
+RSP=0x000000eada3fd128, RBP=0x000000006e60d70c, RSI=0x00000213bdee48e0, RDI=0x0000021424b14a30
+R8 =0x00000213dd450068, R9 =0x000000000000002a, R10=0x000000006e60d70c, R11=0x000002142a2a5488
+R12=0x000000006e60d70c, R13=0x0000000000000000, R14=0x00000213dd450068, R15=0x00000213dd450068
+RIP=0x00007ffad8d16c00, EFLAGS=0x0000000000010202
+
+XMM[0]=0x3b3b3b3b3b3b3b3b 0x3b3b3b3b3b3b3b3b
+XMM[1]=0x0000000000000000 0x0000000000000000
+XMM[2]=0x00000213dc580af0 0x00000213dc580a10
+XMM[3]=0x0000000000000000 0x0000000000000000
+XMM[4]=0x0000000000000000 0x0000000000000000
+XMM[5]=0x00000213dc5615f0 0x00000213dc5615f0
+XMM[6]=0x0000000000000000 0x0000000046308000
+XMM[7]=0x0000000000000000 0x0000000000000000
+XMM[8]=0x0000000000000000 0x0000000000000000
+XMM[9]=0x0000000000000000 0x0000000000000000
+XMM[10]=0x0000000000000000 0x0000000000000000
+XMM[11]=0x0000000000000000 0x0000000000000000
+XMM[12]=0x0000000000000000 0x0000000000000000
+XMM[13]=0x0000000000000000 0x0000000000000000
+XMM[14]=0x0000000000000000 0x0000000000000000
+XMM[15]=0x0000000000000000 0x0000000000000000
+  MXCSR=0x00001fa0
+
+
+Register to memory mapping:
+
+RIP=0x00007ffad8d16c00 jvm.dll
+RAX=0x000000000001b0b9 is an unknown value
+RBX=0x0000021424b14a38 points into unknown readable memory: 0x0000000081304838 | 38 48 30 81 00 00 00 00
+RCX=0x0000021424296830 points into unknown readable memory: 0x000000000000006b | 6b 00 00 00 00 00 00 00
+RDX=0x000000000000002a is an unknown value
+RSP=0x000000eada3fd128 is pointing into the stack for thread: 0x000002142d43ff60
+RBP=0x000000006e60d70c is an unknown value
+RSI=0x00000213bdee48e0 points into unknown readable memory: 0x000002142d43ff60 | 60 ff 43 2d 14 02 00 00
+RDI=0x0000021424b14a30 points into unknown readable memory: 0x000000008bb101c8 | c8 01 b1 8b 00 00 00 00
+R8 =0x00000213dd450068 is pointing into metadata
+R9 =0x000000000000002a is an unknown value
+R10=0x000000006e60d70c is an unknown value
+R11={method} {0x000002142a2a5490} 'getBaseObject' '()Ljava/lang/Object;' in 'org/apache/spark/sql/catalyst/expressions/UnsafeRow'
+R12=0x000000006e60d70c is an unknown value
+R13=0x0 is NULL
+R14=0x00000213dd450068 is pointing into metadata
+R15=0x00000213dd450068 is pointing into metadata
+
+
+Top of Stack: (sp=0x000000eada3fd128)
+0x000000eada3fd128:   00007ffad9220a7f 0000021424b14a38
+0x000000eada3fd138:   00000213dec7dcd0 0000021424b14a38
+0x000000eada3fd148:   00000213bdee48e0 00000213dec7dcd0
+0x000000eada3fd158:   0000021424b14a38 000000eada3fd1f0
+0x000000eada3fd168:   00007ffad91c6574 00000000ce169233
+0x000000eada3fd178:   00000214279de1d9 0000000000000033
+0x000000eada3fd188:   00000213cd1347d0 000000eada3fd6b0
+0x000000eada3fd198:   00000214234511d0 00000000000083b0
+0x000000eada3fd1a8:   0000021424b14a30 00000213dd450068
+0x000000eada3fd1b8:   0000000000000000 0000021424b14a38
+0x000000eada3fd1c8:   00007ffad922121a 0000021424296830
+0x000000eada3fd1d8:   00000214234554d8 00000213dc78f680
+0x000000eada3fd1e8:   0000000000000000 00000213dd456808
+0x000000eada3fd1f8:   0000001400000002 0000000000000014
+0x000000eada3fd208:   000000030000000c 00000213dd450068
+0x000000eada3fd218:   0000000000000000 0000021424b14a30
+0x000000eada3fd228:   00007ffad8fd77b2 0000021427b54e80
+0x000000eada3fd238:   0000021424b14a38 000002142344d4f0
+0x000000eada3fd248:   000000eada3fd3a8 000002142d43ff01
+0x000000eada3fd258:   0000021427b54e00 000002142d43ff60
+0x000000eada3fd268:   00000214234511d0 00000214234554d8
+0x000000eada3fd278:   00000000000083b0 000000eada3fd3f8
+0x000000eada3fd288:   00007ffad93b2158 0000000000000000
+0x000000eada3fd298:   000000eada3fd3f8 000002142d43ff60
+0x000000eada3fd2a8:   0000021427b54e80 000002142344d4f0
+0x000000eada3fd2b8:   00000214234511d0 00000214234554d8
+0x000000eada3fd2c8:   00000000000083b0 00000213df251458
+0x000000eada3fd2d8:   00007ffad8de404f 0000000000000000
+0x000000eada3fd2e8:   0000000000000000 0000000000000000
+0x000000eada3fd2f8:   0000000000000020 0000000000000000
+0x000000eada3fd308:   0000021422c0c830 00004cb2fdceb69d
+0x000000eada3fd318:   00007ffad8dea51e 00000213dec7dcd0 
+
+Instructions: (pc=0x00007ffad8d16c00)
+0x00007ffad8d16b00:   
