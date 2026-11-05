@@ -1,4 +1,4 @@
-pyspark==3.5.3
+pyspark==3.5.8
 jupyterlab
 pandas>=2.2.2
 pyarrow>=16.1.0
